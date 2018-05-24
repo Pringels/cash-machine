@@ -1,0 +1,21 @@
+{
+  "name": "cash-machine",
+  "version": "1.0.0",
+  "description": "A simple ATM emulator",
+  "main": "index.js",
+  "repository": "https://github.com/Pringels/cash-machine",
+  "author": "Peter <peterringelmann@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "mocha --watch"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
