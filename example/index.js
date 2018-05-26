@@ -6,7 +6,7 @@ const CashMachine = require('../cash-machine')
 const denominations = [100, 50, 20, 10]
 const cashMachine = new CashMachine({ denominations })
 
-app.use(express.static('static'))
+app.use(express.static(__dirname + '/static'))
 
 app.get('/api/withdraw', (req, res) => {
   try {
@@ -22,5 +22,5 @@ app.get('/api/withdraw', (req, res) => {
 app.get('/api/denominations', (req, res) => res.send(denominations))
 
 app.listen(3001, () =>
-  console.log('Example cash machine app listening on port 3000!')
+  console.log('Example cash machine app listening on port 3001!')
 )
