@@ -21,6 +21,6 @@ app.get('/api/withdraw', (req, res) => {
 
 app.get('/api/denominations', (req, res) => res.send(denominations))
 
-app.listen(3000, () =>
+app.listen(3001, () =>
   console.log('Example cash machine app listening on port 3000!')
 )
