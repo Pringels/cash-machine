@@ -2,7 +2,8 @@
 
 ## A simple ATM emulator
 
-Emits a set of bank notes for a given input value.
+Emits a set of bank notes for a given input value.  
+The machine will always attempt to return the lowest number of notes.
 
 ### Usage
 
@@ -23,14 +24,10 @@ cashMachine.withdraw(125) // throws NoteUnavailableError
 
 #
 
-To run the example code simply cd into the directory and run
+To run the example code simply cd into the directory and run the following commands:
 
 ```bash
-$ yarn start
-```
-
-or
-
-```bash
+$ npm install
+...
 $ npm run start
 ```

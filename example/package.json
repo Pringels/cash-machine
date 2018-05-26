@@ -1,0 +1,14 @@
+{
+  "name": "cash-machine-example",
+  "version": "1.0.0",
+  "description": "A basic demo for cash machine ",
+  "main": "index.js",
+  "author": "Peter Ringelmann",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

@@ -59,7 +59,8 @@ class CashMachine {
 
   withdraw(amount) {
     if (
-      amount &&
+      amount !== undefined &&
+      amount !== null &&
       this._isValidAmount(amount) &&
       this._canProduceDenominations(amount) &&
       this._account.hasFunds()

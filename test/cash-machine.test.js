@@ -23,7 +23,7 @@ describe('CashMachine', () => {
     expect(cash).to.be.eql([50, 20, 10])
   })
 
-  it('should throw and error if requested amount cannot be divided', () => {
+  it('should throw ad error if requested amount cannot be divided', () => {
     assert.throw(
       () => cashMachine.withdraw(125),
       NoteUnavailableError,
@@ -31,9 +31,21 @@ describe('CashMachine', () => {
     )
   })
 
-  it('should throw and error if requested amount was invalid', () => {
+  it('should throw an error if requested amount was invalid', () => {
     assert.throw(
       () => cashMachine.withdraw(-125),
+      InvalidArgumentError,
+      'The amount specified was not valid'
+    )
+
+    assert.throw(
+      () => cashMachine.withdraw('abc'),
+      InvalidArgumentError,
+      'The amount specified was not valid'
+    )
+
+    assert.throw(
+      () => cashMachine.withdraw(NaN),
       InvalidArgumentError,
       'The amount specified was not valid'
     )
