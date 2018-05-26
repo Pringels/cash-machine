@@ -1,18 +1,19 @@
 const cashMachineForm = document.getElementById('cash-machine')
 const errorBox = document.getElementById('error')
 const noteDispenser = document.getElementById('note-dispenser')
+const loader = document.getElementById('loader')
+
+const hideElem = (elem, className) =>
+  !elem.classList.contains(className) && elem.classList.add(className)
 
 const renderNote = note =>
   `<li class="noteDispenser__note noteDispenser__note--${note}">${note}</li>`
 
 const resetOutput = () => {
-  !errorBox.classList.contains('error--hidden') &&
-    errorBox.classList.add('error--hidden')
-  errorBox.innerText = ''
-
-  !noteDispenser.classList.contains('noteDispenser--hidden') &&
-    noteDispenser.classList.add('noteDispenser--hidden')
+  hideElem(errorBox, 'error--hidden')
+  hideElem(noteDispenser, 'noteDispenser--hidden')
   noteDispenser.innerHTML = ''
+  errorBox.innerText = ''
 }
 
 const renderDispenser = ({ notes }) => {
@@ -25,10 +26,15 @@ const renderError = ({ error }) => {
   errorBox.classList.remove('error--hidden')
 }
 
-const getNotes = amount =>
+const showLoader = () => loader.classList.remove('loader--hidden')
+const hideLoader = () => hideElem(loader, 'loader--hidden')
+
+const getNotes = amount => (
+  resetOutput(),
+  showLoader(),
   fetch(`api/withdraw?amount=${amount}`)
     .then(res => {
-      resetOutput()
+      hideLoader()
       if (res.status !== 200) {
         res.json().then(renderError)
         throw Error()
@@ -37,6 +43,7 @@ const getNotes = amount =>
     })
     .then(renderDispenser)
     .catch(err => err)
+)
 
 cashMachineForm.addEventListener('submit', e => {
   e.preventDefault()

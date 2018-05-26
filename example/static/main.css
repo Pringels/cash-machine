@@ -111,3 +111,17 @@ body {
 .error--hidden {
   display: none;
 }
+
+.loader {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  background-image: url(loader.gif);
+  background-size: 100% 100%;
+  background-color: var(--main-bg-color);
+  background-blend-mode: lighten;
+}
+
+.loader--hidden {
+  display: none;
+}
